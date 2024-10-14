@@ -1,11 +1,11 @@
-<!-- index.html -->
+<!-- crud.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Home Page</title>
+    <title>Manage Data</title>
 </head>
 <body>
     <div id="sidebar">
@@ -19,8 +19,17 @@
         </nav>
     </div>
     <main>
-        <h1>Welcome to the Themed Content Website</h1>
-        <p>This website provides useful insights and tools related to our content theme. The current content can be adjusted to fit any specific theme assigned.</p>
+        <h1>Manage Data</h1>
+        <form id="crudForm">
+            <label for="dataInput">Enter Data:</label>
+            <input type="text" id="dataInput" name="dataInput">
+            <button type="button" onclick="createData()">Create</button>
+            <button type="button" onclick="readData()">Read</button>
+            <button type="button" onclick="updateData()">Update</button>
+            <button type="button" onclick="deleteData()">Delete</button>
+        </form>
+        <div id="dataOutput"></div>
+        <script src="js/crud.js"></script>
     </main>
     <footer>
         <p>&copy; 2024 Themed Content Website</p>

@@ -1,11 +1,12 @@
-<!-- index.html -->
+<!-- analytics.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Home Page</title>
+    <title>Data Analytics</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
     <div id="sidebar">
@@ -19,8 +20,9 @@
         </nav>
     </div>
     <main>
-        <h1>Welcome to the Themed Content Website</h1>
-        <p>This website provides useful insights and tools related to our content theme. The current content can be adjusted to fit any specific theme assigned.</p>
+        <h1>Data Analytics</h1>
+        <div id="chart"></div>
+        <script src="js/analytics.js"></script>
     </main>
     <footer>
         <p>&copy; 2024 Themed Content Website</p>
