@@ -19,16 +19,32 @@
         </nav>
     </div>
     <main>
-        <h1>Manage Data</h1>
+        <h1 class="main-title">Manage Data</h1>
         <form id="crudForm">
-            <label for="dataInput">Enter Data:</label>
-            <input type="text" id="dataInput" name="dataInput">
-            <button type="button" onclick="createData()">Create</button>
-            <button type="button" onclick="readData()">Read</button>
-            <button type="button" onclick="updateData()">Update</button>
-            <button type="button" onclick="deleteData()">Delete</button>
+            <div class="form-row">
+                <label for="item1">Item 1</label>
+                <label for="item2">Item 2</label>
+                <label for="item3">Item 3</label>
+                <label for="item4">Number</label>
+            </div>
+            <div class="form-row">
+                <input type="text" id="item1" name="item1" required>
+                <input type="text" id="item2" name="item2" required>
+                <input type="text" id="item3" name="item3" required>
+                <input type="number" id="item4" name="item4" required>
+            </div>
+            <button type="button" onclick="submitData()">Submit</button>
         </form>
-        <div id="dataOutput"></div>
+        <div id="dataOutput">
+            <h2>Output</h2>
+            <div class="output-headers">
+                <span>Item 1</span>
+                <span>Item 2</span>
+                <span>Item 3</span>
+                <span>Number</span>
+                <span>Actions</span>
+            </div>
+        </div>
         <script src="js/crud.js"></script>
     </main>
     <footer>
