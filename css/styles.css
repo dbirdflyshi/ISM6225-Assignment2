@@ -57,15 +57,27 @@ main {
   color: #0077b6;
 }
 
+.subtitle {
+  text-align: center;
+  margin-top: 2vh;
+  color: #cfcfcf;
+}
+
 footer {
   text-align: center;
-  padding: 0.1vh;
+  height: 3vh;
   background-color: #0077b6;
   color: #fff;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100vw;
+}
+
+footer p {
+  margin: 0;
+  padding: .75vh;
+  font-size: .75em;
 }
 
 form {
@@ -97,7 +109,7 @@ form input {
   border-radius: 0.5vh;
   background-color: #444;
   color: #cfcfcf;
-  flex: 1 1 20%;
+  flex: 1 1 15%;
   margin: 0 1vh;
 }
 
@@ -144,6 +156,7 @@ form button:hover {
   display: flex;
   justify-content: center;
   gap: 1vh;
+  padding: 1vh;
 }
 
 .edit-btn, .delete-btn {

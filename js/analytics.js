@@ -2,12 +2,15 @@
 window.addEventListener('DOMContentLoaded', function() {
     let storedData = localStorage.getItem('dataList');
     if (!storedData) {
-        document.getElementById('error-message').innerText = 'No data found in localStorage. Please add data from another page.';
+        alert('Add Data In Manage Date Page To View Chart');
         return;
     }
 
     storedData = JSON.parse(storedData);
-    const labels = storedData.map(d => d.item1);
+    const labels = storedData.map(d => d.item1 + ' ' + d.item2 + ' ' + d.item3);
+    const items1 = storedData.map(d => d.item1);
+    const items2 = storedData.map(d => d.item2);
+    const items3 = storedData.map(d => d.item3);
     const values = storedData.map(d => d.item4);
 
     // Set dimensions and radius for the chart
@@ -25,8 +28,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // Set color scale (shades of blue)
     const color = d3.scaleOrdinal()
-        .domain(labels)
-        .range(d3.schemeBlues[labels.length > 3 ? 9 : 3]);
+        .domain(values)
+        .range(d3.schemeBlues[values.length > 3 ? 9 : 3]);
 
     // Create pie generator
     const pie = d3.pie()
@@ -46,10 +49,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
     arcs.append('path')
         .attr('d', arc)
-        .attr('fill', (d, i) => color(labels[i]))
+        .attr('fill', (d, i) => color(values[i]))
         .on('mouseover', function(event, d) {
             tooltip.style('display', 'block')
-                .html(`Label: ${labels[d.index]}<br>Value: ${d.value}`)
+                .html(`Item 1: ${items1[d.index]}<br>Item 2: ${items2[d.index]}<br>Item 3: ${items3[d.index]}<br>Value: ${d.value}`)
                 .style('left', (event.pageX + 10) + 'px')
                 .style('top', (event.pageY - 25) + 'px');
             d3.select(this).attr('opacity', 0.7);
