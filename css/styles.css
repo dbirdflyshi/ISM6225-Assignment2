@@ -1,3 +1,5 @@
+/* Existing styles */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #1e1e1e;
@@ -109,8 +111,9 @@ form input {
   border-radius: 0.5vh;
   background-color: #444;
   color: #cfcfcf;
-  flex: 1 1 15%;
+  flex: 1 1 7.5%;
   margin: 0 1vh;
+  width: 30px;
 }
 
 form button {
@@ -150,6 +153,7 @@ form button:hover {
 .output-headers span, .data-row span {
   flex: 1;
   text-align: center;
+  width: 20vw;
 }
 
 .action-buttons {
@@ -276,4 +280,64 @@ form button:hover {
 #center{
   display: flex; 
   justify-content: center;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  #sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 1vh;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2vh 0;
+  }
+
+  nav ul li {
+    margin-bottom: 2vh;
+  }
+
+  nav ul li a {
+    padding: 1vh;
+  }
+
+  main {
+    max-width: 90vw;
+    margin: 2vh;
+    padding: 2vh;
+  }
+
+  form {
+    padding: 0 2vh;
+  }
+
+  .form-row {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  form label input{
+    flex: 1 1 40%;
+    text-align: left;
+    margin: 1vh .5vh;
+  }
+
+  #chart {
+    width: 90vw;
+    height: 40vh;
+  }
+
+  .image img {
+    max-width: 80%;
+  }
+
+  footer {
+    height: auto;
+    padding: 1vh;
+  }
 }
