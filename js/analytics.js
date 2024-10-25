@@ -2,7 +2,7 @@
 window.addEventListener('DOMContentLoaded', function() {
     let storedData = localStorage.getItem('dataList');
     if (!storedData) {
-        alert('Add Data In Manage Date Page To View Chart');
+        alert('Add Data In Book Tracking Page To View Chart');
         return;
     }
 
