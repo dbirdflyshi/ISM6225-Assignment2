@@ -247,6 +247,20 @@ form button:hover {
   background-color: #005f8d;
 }
 
+/* Center the main h2 and the new div */
+main h2, main h3 {
+  text-align: center;
+  margin: 1em 0;
+  color: #cfcfcf;
+}
+
+/* Style for total-pages to be blue */
+main h3 {
+  color: #0077b6;
+}
+
+
+
 /* CSS for Tooltip */
 .tooltip {
   font-size: 0.9em;
@@ -275,6 +289,14 @@ form button:hover {
   height: auto;
   border-radius: 1vh;
   box-shadow: 0 0 5vh rgba(0, 0, 0, 0.5);
+}
+
+nav img {
+  width: 90%; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 200px; /* Optional: set a max width */
+  display: block;
+  margin: 0 auto; /* Center the image */
 }
 
 #center{

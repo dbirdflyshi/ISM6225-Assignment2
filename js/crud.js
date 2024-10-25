@@ -4,18 +4,31 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function submitData() {
-    const item1 = document.getElementById('item1').value;
-    const item2 = document.getElementById('item2').value;
-    const item3 = document.getElementById('item3').value;
-    const item4 = document.getElementById('item4').value;
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const date_completed = formatDate(document.getElementById('date_completed').value);
+    const number_pages = document.getElementById('number_pages').value;
 
-    const data = { item1, item2, item3, item4 };
+    const data = { title, author, date_completed, number_pages };
     let dataList = JSON.parse(localStorage.getItem('dataList')) || [];
     dataList.push(data);
     localStorage.setItem('dataList', JSON.stringify(dataList));
 
     appendDataToOutput(dataList.length - 1, data);
     clearForm();
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const year = date.getFullYear();
+    if (isNaN(month) || isNaN(day) || isNaN(year)) {
+        return 'Not A Date';
+    }
+    else{
+        return `${month}/${day}/${year}`;
+    }
 }
 
 function appendDataToOutput(index, data) {
@@ -25,10 +38,10 @@ function appendDataToOutput(index, data) {
     row.setAttribute('data-index', index);
 
     row.innerHTML = `
-        <span>${data.item1}</span>
-        <span>${data.item2}</span>
-        <span>${data.item3}</span>
-        <span>${data.item4}</span>
+        <span>${data.title}</span>
+        <span>${data.author}</span>
+        <span>${data.date_completed}</span>
+        <span>${data.number_pages}</span>
         <div class="action-buttons">
             <button class="edit-btn" onclick="editData(${index})">Edit</button>
             <button class="delete-btn" onclick="deleteData(${index})">Delete</button>
@@ -57,15 +70,15 @@ function editData(index) {
     editPopup.classList.add('edit-popup');
     editPopup.innerHTML = `
         <div class="edit-form">
-            <h2>Edit Data</h2>
-            <label for="editItem1">Item 1</label>
-            <input type="text" id="editItem1" value="${data.item1}" required>
-            <label for="editItem2">Item 2</label>
-            <input type="text" id="editItem2" value="${data.item2}" required>
-            <label for="editItem3">Item 3</label>
-            <input type="text" id="editItem3" value="${data.item3}" required>
-            <label for="editItem4">Number</label>
-            <input type="number" id="editItem4" value="${data.item4}" required>
+            <h2>Edit Book</h2>
+            <label for="editItem1">Book Title</label>
+            <input type="text" id="editItem1" value="${data.title}" required>
+            <label for="editItem2">Book Author</label>
+            <input type="text" id="editItem2" value="${data.author}" required>
+            <label for="editItem3">Date Completed</label>
+            <input type="text" id="editItem3" value="${data.date_completed}" required>
+            <label for="editItem4">Number Of Pages</label>
+            <input type="number" id="editItem4" value="${data.number_pages}" required>
             <div class="edit-buttons">
                 <button onclick="saveEditData(${index})">Save</button>
                 <button onclick="closeEditPopup()">Cancel</button>
@@ -76,13 +89,13 @@ function editData(index) {
 }
 
 function saveEditData(index) {
-    const item1 = document.getElementById('editItem1').value;
-    const item2 = document.getElementById('editItem2').value;
-    const item3 = document.getElementById('editItem3').value;
-    const item4 = document.getElementById('editItem4').value;
+    const title = document.getElementById('editItem1').value;
+    const author = document.getElementById('editItem2').value;
+    const date_completed = formatDate(document.getElementById('editItem3').value);
+    const number_pages = document.getElementById('editItem4').value;
 
     let dataList = JSON.parse(localStorage.getItem('dataList'));
-    dataList[index] = { item1, item2, item3, item4 };
+    dataList[index] = { title, author, date_completed, number_pages };
     localStorage.setItem('dataList', JSON.stringify(dataList));
     updateDataOutput();
     closeEditPopup();
@@ -108,7 +121,7 @@ function deleteData(index) {
 
 function updateDataOutput() {
     const dataOutput = document.getElementById('dataOutput');
-    dataOutput.innerHTML = '<h2>Output</h2><div class="output-headers"><span>Item 1</span><span>Item 2</span><span>Item 3</span><span>Number</span><span>Actions</span></div>';
+    dataOutput.innerHTML = '<h2>Output</h2><div class="output-headers"><span>Book Title</span><span>Book Author</span><span>Date Completed</span><span>Number Of Pages</span><span>Actions</span></div>';
     loadStoredData();
 }
 

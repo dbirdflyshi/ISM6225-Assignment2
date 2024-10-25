@@ -5,35 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Manage Data</title>
+    <link rel="icon" href="img/favicon.png" type="image/png"> 
+    <title>Book Tracking</title>
 </head>
 <body>
     <div id="navbar-placeholder"></div>
 
     <main>
-        <h1 class="main-title">Manage Data</h1>
+        <h1 class="main-title">Track Your Books Here!</h1>
         <form id="crudForm">
             <div class="form-row">
-                <label for="item1">Item 1</label>
-                <label for="item2">Item 2</label>
-                <label for="item3">Item 3</label>
-                <label for="item4">Number</label>
+                <label for="title">Title</label>
+                <label for="author">Author</label>
+                <label for="date_completed">Date Completed</label>
+                <label for="number_pages">Number Of Pages</label>
             </div>
             <div class="form-row">
-                <input type="text" id="item1" name="item1" required>
-                <input type="text" id="item2" name="item2" required>
-                <input type="text" id="item3" name="item3" required>
-                <input type="number" id="item4" name="item4" required>
+                <input type="text" id="title" name="title" placeholder="Book Title" required>
+                <input type="text" id="author" name="author" placeholder="Author" required>
+                <input type="date" id="date_completed" placeholder="MM/DD/YYYY" name="date_completed" required>
+                <input type="number" id="number_pages" name="number_pages" placeholder="Number" required>
             </div>
             <button type="button" onclick="submitData()">Submit</button>
         </form>
         <div id="dataOutput">
-            <h2>Output</h2>
+            <h2>Book List</h2>
             <div class="output-headers">
-                <span>Item 1</span>
-                <span>Item 2</span>
-                <span>Item 3</span>
-                <span>Number</span>
+                <span>Title</span>
+                <span>Author</span>
+                <span>Date Completed</span>
+                <span>Number Of Pages</span>
                 <span class="action">Actions</span>
             </div>
         </div>
