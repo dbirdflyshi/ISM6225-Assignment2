@@ -142,6 +142,19 @@ form button:hover {
   color: #cfcfcf;
 }
 
+#dataTable {
+  width: 100%;
+  max-width: 90%;
+  padding: 1vh;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+#dataTable th, #dataTable td {
+  padding: 1vh;
+  text-align: center;
+}
+
 .output-headers, .data-row {
   display: flex;
   justify-content: space-between;
@@ -172,6 +185,8 @@ form button:hover {
   color: #fff;
   cursor: pointer;
   font-weight: bold;
+  margin-top: 0.5vh;
+  margin-bottom: 0.5vh;
 }
 
 .edit-btn:hover, .delete-btn:hover {

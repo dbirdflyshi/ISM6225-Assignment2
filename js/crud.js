@@ -25,30 +25,28 @@ function formatDate(dateString) {
     const year = date.getFullYear();
     if (isNaN(month) || isNaN(day) || isNaN(year)) {
         return 'Not A Date';
-    }
-    else{
+    } else {
         return `${month}/${day}/${year}`;
     }
 }
 
 function appendDataToOutput(index, data) {
-    const dataOutput = document.getElementById('dataOutput');
-    const row = document.createElement('div');
-    row.classList.add('data-row');
+    const dataTable = document.querySelector('#dataTable tbody');
+    const row = document.createElement('tr');
     row.setAttribute('data-index', index);
 
     row.innerHTML = `
-        <span>${data.title}</span>
-        <span>${data.author}</span>
-        <span>${data.date_completed}</span>
-        <span>${data.number_pages}</span>
-        <div class="action-buttons">
+        <td>${data.title}</td>
+        <td>${data.author}</td>
+        <td>${data.date_completed}</td>
+        <td>${data.number_pages}</td>
+        <td>
             <button class="edit-btn" onclick="editData(${index})">Edit</button>
             <button class="delete-btn" onclick="deleteData(${index})">Delete</button>
-        </div>
+        </td>
     `;
 
-    dataOutput.appendChild(row);
+    dataTable.appendChild(row);
 }
 
 function loadStoredData() {
@@ -120,8 +118,8 @@ function deleteData(index) {
 }
 
 function updateDataOutput() {
-    const dataOutput = document.getElementById('dataOutput');
-    dataOutput.innerHTML = '<h2>Output</h2><div class="output-headers"><span>Book Title</span><span>Book Author</span><span>Date Completed</span><span>Number Of Pages</span><span>Actions</span></div>';
+    const dataTable = document.querySelector('#dataTable tbody');
+    dataTable.innerHTML = '';
     loadStoredData();
 }
 
